@@ -22,6 +22,16 @@ def parameters(request):
 
 # add measurements to tank
 
+from .forms import MeasurementForm
+
+def add_data(request):
+    context = {}
+    form = MeasurementForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+
+    context['form'] = form
+    return render(request, "add.html", context)
 
 #export to excel
 
@@ -47,7 +57,7 @@ def export_measurements_to_excel(request):
     response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
     response['Content-Disposition'] = 'attachment; filename=measurements.xlsx'
 
-    # Use Pandas to write the DataFrame to an Eaxcel file
+    # Use Pandas to write the DataFrame to an Excel file
     df.to_excel(response, index=False, engine='openpyxl')
 
     return response 
