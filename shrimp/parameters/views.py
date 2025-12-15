@@ -11,14 +11,33 @@ from django.shortcuts import render
 from .models import Measurement
 from .models import Tank
 import pandas as pd 
- 
+
+def home(request):
+    return render(request, "home.html")
+
 #shows all parameter measurements. add chartJS later. 
+
+
 def parameters(request):
-    myparams = Measurement.objects.all()
-    # mytank=Tank.objects.all()
+    data=[]
+    labels=[]
+
+    measurements=Measurement.objects.order_by('-date')
+
+    for m in measurements:
+     labels.append(m.date.strftime("%Y-%m-%d %H:%M:%S"))
+     data.append(m.ammonia)
+     
+
+
     return render(request, "allparams.html", {
-        "myparams": myparams
-    })
+        "labels": labels,
+        "data": data
+        })
+
+
+
+
 
 # add measurements to tank
 
@@ -36,7 +55,7 @@ def add_data(request):
 #export to excel
 
 
-def export_measurements_to_excel(request):
+def export_measurements_to_excel():
  
     measurements = Measurement.objects.all()
 
@@ -61,3 +80,4 @@ def export_measurements_to_excel(request):
     df.to_excel(response, index=False, engine='openpyxl')
 
     return response 
+
