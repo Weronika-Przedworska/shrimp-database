@@ -6,5 +6,5 @@ urlpatterns = [
     path('add/', views.add_data, name='add_data'),
     path('', views.home, name='home'),
 
-    path('export/', views.export_measurements_to_excel, name='export-measurements'),
+    path('export/', views.export_measurements_to_excel, name='export_data'),
 ]

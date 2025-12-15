@@ -1,8 +1,3 @@
- 
-
-# Create your views here.
-
- 
 from django.http import HttpResponse
 from django.utils import timezone
 from django.utils.timezone import make_naive
@@ -62,7 +57,7 @@ def add_data(request):
 #export to excel
 
 
-def export_measurements_to_excel():
+def export_measurements_to_excel(request):
  
     measurements = Measurement.objects.all()
 
