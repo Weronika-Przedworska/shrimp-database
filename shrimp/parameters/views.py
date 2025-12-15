@@ -19,20 +19,27 @@ def home(request):
 
 
 def parameters(request):
-    data=[]
+    data_ammonia=[]
+    data_nitrate=[]
+    data_nitrite=[]
+
+
     labels=[]
 
     measurements=Measurement.objects.order_by('-date')
 
     for m in measurements:
      labels.append(m.date.strftime("%Y-%m-%d %H:%M:%S"))
-     data.append(m.ammonia)
-     
+     data_ammonia.append(m.ammonia)
+     data_nitrate.append(m.nitrates)
+     data_nitrite.append(m.nitrites)
 
 
     return render(request, "allparams.html", {
         "labels": labels,
-        "data": data
+        "data_ammonia": data_ammonia,
+        "data_nitrate": data_nitrate,
+        "data_nitrite": data_nitrite,
         })
 
 
@@ -68,6 +75,7 @@ def export_measurements_to_excel():
             "Date": make_naive(m.date), #get past timezone error
             "Ammonia": m.ammonia,
             "Nitrites": m.nitrites,
+            "Nitrates": m.nitrates,
         })
 
     df = pd.DataFrame(data)

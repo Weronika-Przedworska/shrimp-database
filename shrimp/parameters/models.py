@@ -12,6 +12,7 @@ class Measurement(models.Model):
   date=models.DateTimeField(auto_now_add=True) #automatically gets date, better for accuracy
   ammonia = models.FloatField()
   nitrites = models.FloatField()
+  nitrates=models.FloatField()
   tank=models.ForeignKey(Tank, on_delete=models.CASCADE, related_name="measurements")
 
   def __str__(self):
