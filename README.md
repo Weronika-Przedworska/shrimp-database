@@ -25,3 +25,13 @@ Below is an ERD of the model relationships (Tank and Measurement).
 ![Entity Relationship Diagram](final_ERD.drawio.png)
 
 
+Special thanks to all the miscellanous old blog posts and YouTube videos that helped make this project possible:
+
+https://www.sitepoint.com/community/t/getting-random-image-to-work/307845/4
+https://www.horilla.com/blogs/how-to-export-django-model-data-to-an-excel-sheet-using-pandas/
+https://www.youtube.com/watch?v=BaMo4IG3y8w&t=193s
+https://www.geeksforgeeks.org/software-testing/how-do-i-run-the-pytest-tests-in-django/
+https://www.docker.com/blog/how-to-dockerize-django-app/
+
+and, of course, the official Django/ChartJS/Docker documentation. 
+
