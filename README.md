@@ -16,7 +16,8 @@ Regarding the assignment specifications, here is how this project met the requir
 2. Useful visual: accesible at the /parameters url, this view shows all collected measurements of ammonia, nitrites, and nitrates in the form of a bar chart, which allows the user to view changes over time.
 3. Admin interface: accessible at the /admin url, this view allows the user to add tank objects and otherwise add model instances
 
-Attached below is an ERD of the model relationships (Tank and Measurement). 
+   
+Below is an ERD of the model relationships (Tank and Measurement). 
 
 ![Entity Relationship Diagram](final_ERD.drawio.png)
 
