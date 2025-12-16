@@ -1,4 +1,5 @@
 # From Docker.com blog
+
  FROM python:3.12-slim
  
  RUN mkdir /app
