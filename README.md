@@ -1,6 +1,8 @@
 ### Shrimp Tank Database
 
-Welcome to my final project. I created this basic Django web application to help me manage my aquarium, which currently contains mainly *neocaridina davidi* (red cherry shrimp).
+Welcome to my final project (version v1.0.0)
+
+I created this basic Django web application to help me manage my aquarium, which currently contains mainly *neocaridina davidi* (red cherry shrimp).
 Most aquarium owners regularly test water parameters with a test kit that measure levels of ammonia, nitrates, nitrites, etc. in the water.  I usually write down those measurements on a piece of paper,
 but this webapp should make things easier going forward. 
 
