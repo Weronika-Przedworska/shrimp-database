@@ -19,7 +19,7 @@ Regarding the assignment specifications, here is how this project met the requir
 3. Admin interface: accessible at the /admin url, this view allows the user to add tank objects and otherwise add model instances
 4. Tests: I used pytest-django to verify that that the relationship between models functioned properly and that views were working. Tests can be ran using the "pytest" command.
 
-Note: After running the package, this webapp should be accessibe on http://127.0.0.1:8000/. For testing purposes, the login/password for the admin view is weronika/password. 
+Note: After running the package, this webapp should be accessibe on http://127.0.0.1:8000/. For (temporary!) testing purposes, the login/password for the admin view is weronika/password. 
 
    
 Below is an ERD of the model relationships (Tank and Measurement). 
