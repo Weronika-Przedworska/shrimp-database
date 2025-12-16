@@ -4,5 +4,4 @@ from .models import Measurement
 class MeasurementForm (forms.ModelForm):
     class Meta:
         model = Measurement
-       # fields = "__all__"  # or list fields explicitly for security
-        exclude = ['date']
+        exclude = ['date']   # date is collected automatically so no need to enter

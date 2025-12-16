@@ -1,95 +1,79 @@
 <!DOCTYPE html>
 
 <head>
+    <title>Aquarium Parameters</title>
 </head>
+
+<!-- I know that I could use a seperate .js file instead of including it in the HTML, but the tutorial 
+I followed (linked in the readme) did it in one file and to be honest I prefer it this way. -->
+
 
 <body>
     <a href="/">Home</a><br>
+    <a href="{% url 'export_data' %}">Download measurements as .xlsx</a><br><br>
 
-    <a href="{% url 'export_data' %}">Download measurements as .xslx</a><br>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
 
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <script>
+      const ctx = document.getElementById('myChart');
 
-<div>
-  <canvas id="myChart"></canvas>
-</div>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script>
-  const ctx = document.getElementById('myChart');
-
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: {{ labels|safe }},
-      datasets: [
-        
-      {
-        label: 'NH3',
-        data: {{ data_ammonia|safe }} ,
-        borderWidth: 1,
-        backgroundColor: '#DAA520',
-      },
-
-          {
-        label: 'NO3-',
-        data: {{ data_nitrate|safe }} ,
-        borderWidth: 1,
-        backgroundColor: '#51B73B',
-      },
-
-          {
-        label: 'NO2-',
-        data: {{ data_nitrite|safe }} ,
-        borderWidth: 1,
-        backgroundColor: '#AA336A',
-      }
-
-
-
-
-
-    ]
-    },
-    options: {
-      scales: {
-        x: {
-          display: true,
-          title: {
-            display: true,
-            text: 'Ammonia, Nitrites, and Nitrates',
-            color: '#000000',
-            font: {
-              family: 'Calibri',
-              size: 20,
-              weight: 'bold',
-              lineHeight: 1.2,
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: {{ labels|safe }},
+          datasets: [
+            {
+              label: 'NH3',
+              data: {{ data_ammonia|safe }},
+              borderWidth: 1,
+              backgroundColor: '#DAA520',
             },
-            padding: { top: 20, left: 0, right: 0, bottom: 0 }
-          }
+            {
+              label: 'NO3-',
+              data: {{ data_nitrate|safe }},
+              borderWidth: 1,
+              backgroundColor: '#51B73B',
+            },
+            {
+              label: 'NO2-',
+              data: {{ data_nitrite|safe }},
+              borderWidth: 1,
+              backgroundColor: '#AA336A',
+            }
+          ]
         },
-        y: {
-          beginAtZero: true,
-          display: true,
-          title: {
-            display: true,
-            text: 'Parts per million (ppm)',
-            color: '#000000',
-            font: {
-              family: 'Calibri',
-              size: 20,
-              weight: 'bold',
-              lineHeight: 1.2,
+        options: {
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Ammonia, Nitrites, and Nitrates',
+                font: {
+                  family: 'Calibri',
+                  size: 20,
+                  weight: 'bold'
+                }
+              }
             },
-            padding: { top: 20, left: 0, right: 0, bottom: 0 }
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Parts per million (ppm)',
+                font: {
+                  family: 'Calibri',
+                  size: 20,
+                  weight: 'bold'
+                }
+              }
+            }
           }
         }
-      }
-    }
-  });
-</script>
-
+      });
+    </script>
+</body>
+</html>

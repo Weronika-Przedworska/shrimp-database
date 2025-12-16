@@ -10,13 +10,12 @@ class Tank(models.Model):
 
 class Measurement(models.Model):
   date=models.DateTimeField(auto_now_add=True) #automatically gets date, better for accuracy
-  ammonia = models.FloatField()
-  nitrites = models.FloatField()
-  nitrates=models.FloatField()
+  ammonia = models.FloatField() # in parts per million (ppm)
+  nitrites = models.FloatField() # in ppm 
+  nitrates=models.FloatField() # in ppm 
   tank=models.ForeignKey(Tank, on_delete=models.CASCADE, related_name="measurements")
 
   def __str__(self):
         return f"{self.tank.brand} at ({self.date})"
 
 
-# Create your models here.

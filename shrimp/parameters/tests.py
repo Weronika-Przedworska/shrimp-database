@@ -1,14 +1,11 @@
-
 import pytest
 from .models import Measurement
 from .models import Tank
 from django.urls import reverse
 
 
-
-
+# check model instances + relationship
 @pytest.mark.django_db
-
 def test_tank_measurement():
     tank = Tank.objects.create(
         size_liters= 10,
@@ -44,17 +41,14 @@ def test_tank_measurement():
     assert Tank.objects.count() == 1 
 
 
-# check that views can load
-
+# test views
 @pytest.mark.django_db
-
 def test_adding(client):
     url = reverse('add_data')
     response = client.get(url)
     assert response.status_code == 200
 
 @pytest.mark.django_db
-
 def test_showing(client):
     url = reverse('parameters')
     response = client.get(url)
@@ -62,14 +56,12 @@ def test_showing(client):
 
 
 @pytest.mark.django_db
-
 def test_home(client):
     url = reverse('home')
     response = client.get(url)
     assert response.status_code == 200
 
 @pytest.mark.django_db
-
 def test_excel(client):
     url = reverse('export_data')
     response = client.get(url)

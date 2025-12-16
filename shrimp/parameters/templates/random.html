@@ -1,0 +1,27 @@
+{% load static %}
+
+<h2>neocaridina davidi</h2>
+
+<body>
+
+<a href="/">Home</a><br><br>
+<a href="/random">give me another shrimp</a><br><br>
+
+
+
+<img id=myShrimp height="300 px" width="300px">
+
+<script>
+
+  const images = [
+    "{% static 'images/shrimp1.jpg' %}",
+    "{% static 'images/shrimp2.jpg' %}",
+    "{% static 'images/shrimp3.jpg' %}",
+     "{% static 'images/shrimp4.jpg' %}",
+     "{% static 'images/shrimp5.jpg' %}",
+
+  ];
+
+  const randomIndex = Math.floor(Math.random() * images.length);
+  document.getElementById("myShrimp").src = images[randomIndex];
+</script>
