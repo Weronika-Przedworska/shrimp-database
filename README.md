@@ -15,6 +15,7 @@ Regarding the assignment specifications, here is how this project met the requir
 1. Data submission view: accessible at the /add url, this view allows a user to add measurements to a given tank object.
 2. Useful visual: accesible at the /parameters url, this view shows all collected measurements of ammonia, nitrites, and nitrates in the form of a bar chart, which allows the user to view changes over time.
 3. Admin interface: accessible at the /admin url, this view allows the user to add tank objects and otherwise add model instances
+4. Tests: I used pytest-django to verify that that the relationship between models functioned properly and that views were working. Tests can be ran using the "pytest" command.
 
    
 Below is an ERD of the model relationships (Tank and Measurement). 
